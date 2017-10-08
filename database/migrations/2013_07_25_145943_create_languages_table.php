@@ -12,7 +12,7 @@ class CreateLanguagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('MP_translator_languages', function ($table) {
+        Schema::create('translator_languages', function ($table) {
             $table->increments('id');
             $table->string('locale', 6)->unique();
             $table->string('name', 60)->unique();
