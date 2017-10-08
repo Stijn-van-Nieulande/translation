@@ -12,7 +12,7 @@ class CreateTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('translator_translations', function ($table) {
+        Schema::create('MP_translator_translations', function ($table) {
             $table->increments('id');
             $table->string('locale', 6);
             $table->string('namespace', 150)->default('*');
@@ -22,7 +22,7 @@ class CreateTranslationsTable extends Migration
             $table->boolean('unstable')->default(false);
             $table->boolean('locked')->default(false);
             $table->timestamps();
-            $table->foreign('locale')->references('locale')->on('translator_languages');
+            $table->foreign('locale')->references('locale')->on('MP_translator_languages');
             $table->unique(['locale', 'namespace', 'group', 'item']);
         });
     }
@@ -34,7 +34,7 @@ class CreateTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('translator_translations');
+        //Schema::drop('translator_translations');
     }
 
 }
